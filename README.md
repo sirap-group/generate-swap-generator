@@ -43,13 +43,13 @@ $ npm install --global generate-swap-generator
 > You should first visit the generator framework, [generate](https://github.com/generate/generate) to understand how generators, subgenerators and plugins work.
 
 ```sh
-$ yarn add -D generate-swap-generator
+$ yarn add generate-swap-generator
 ```
 
 or
 
 ```sh
-$ npm install --save-dev generate-swap-generator
+$ npm install --save generate-swap-generator
 ```
 
 ## Usage
@@ -275,7 +275,6 @@ The whole build pipeline is run locally (lint, transpile, test) and then a new g
 * [engine](https://www.npmjs.com/package/engine): Template engine based on Lo-Dash template, but adds features like the ability to register helpers… [more](https://www.npmjs.com/package/engine) | [homepage](https://github.com/jonschlinkert/engine)
 * [template](https://www.npmjs.com/package/template): Render templates using any engine. Supports, layouts, pages, partials and custom template types. Use template… [more](https://www.npmjs.com/package/template) | [homepage](https://github.com/jonschlinkert/template)
 
-### Community
 ## License
 
 Copyright © [Groupe SIRAP](https://github.com/rbecheras)
