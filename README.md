@@ -54,24 +54,98 @@ $ npm install --save-dev generate-swap-generator
 
 ## Usage
 
-### Global
+### As a standalone generator (recommanded)
 
 ```sh
 $ generate-swap-generator
 ```
 
-### Local
+Should scaffold the project in the destination path you choose when asked.
 
-```js
-import generateSwapGenerator from 'generate-swap-generator'
-generateSwapGenerator()
+### Generated files
+
 ```
-
-### Example
+.
+├─┬ src/
+| ├─┬ tests/
+| | ├─ plugin.js
+| | └─ index.js
+| ├─┬ assets/
+| | ├─┬ img/
+| | | └── ...
+| | └─┬ templates/
+| |   └── example.txt
+| └─┬ lib/
+|   └─ generator.js
+├── contributing.md
+├── .editorconfig
+├── .git
+├── .gitattributes
+├── .gitignore
+├── .gitlab-ci.yml
+├── index.js
+├── generator.js
+├── LICENSE
+├── node_modules
+├── .npmrc
+├── package.json
+├── README.md
+└── .travis.yml
+```
 
 #### Usage screenshot
 
 ![Usage example](src/assets/img/placehold-350x150.png)
+
+### As a generate plugin (if you know what you are doing)
+
+> You should first visit the generator framework, [generate](https://github.com/generate/generate) to understand how generators, subgenerators and plugins work.
+
+```js
+import generateSwapGenerator from 'generate-swap-generator'
+import isValid from 'is-valid-app'
+
+export default function (app) {
+  if (!isValid(app, 'generate-my-generator')) return
+
+  app.use(generateSwapGenerator)
+
+  // ... your generator's stuff
+}
+```
+
+Then you can use directly any `generate-swap-generator` tasks as a `generate-my-generator` task.
+
+```
+$ gen my-generator:keywords
+```
+
+Should run `generate-swap-generator:keywords` on your own generator instance.
+
+### As a generate sub-generator (if you know what you are doing)
+
+> You should first visit the generator framework, [generate](https://github.com/generate/generate) to understand how generators, subgenerators and plugins work.
+
+```js
+import generateSwapGenerator from 'generate-swap-generator'
+import isValid from 'is-valid-app'
+
+export default function (app) {
+  if (!isValid(app, 'generate-my-generator')) return
+
+  app.register('swap-generator', generateSwapGenerator)
+
+  // ... your generator's stuff
+}
+```
+
+Then you can acces easily any `generate-swap-generator` tasks as a `generate-my-generator` sub-generator task.
+
+```
+$ gen my-generator.swap-generator:keywords
+```
+
+Should run `generate-swap-generator:keywords` on your own generator instance.
 
 ## API
 
