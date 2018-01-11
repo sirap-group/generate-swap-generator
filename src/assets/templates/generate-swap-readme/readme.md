@@ -23,7 +23,7 @@ rename:
 
 ## Installation
 
-### Global
+### Global install to use the generator as a standarlone CLI (recommanded)
 
 ```sh
 $ yarn gobal add <%= ask('name') %>
@@ -35,16 +35,18 @@ or
 $ npm install --global <%= ask('name') %>
 ```
 
-### Local
+### Local install to use as a `generate` plugin or sub-generator
+
+> You should first visit the generator framework, [generate](https://github.com/generate/generate) to understand how generators, subgenerators and plugins work. See also [related projects](#related-projects)
 
 ```sh
-$ yarn add [-D] <%= ask('name') %>
+$ yarn add <%= ask('name') %>
 ```
 
 or
 
 ```sh
-$ npm install --save[-dev] <%= ask('name') %>
+$ npm install --save <%= ask('name') %>
 ```
 
 ## Usage
