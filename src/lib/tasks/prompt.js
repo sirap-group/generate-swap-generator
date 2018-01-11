@@ -140,10 +140,12 @@ export default app => {
       app.base.data({main})
 
       const defaultFiles = [
-        main,
+        'generator.js',
+        'index.js',
         'LICENSE',
         'README.md',
         'dist/',
+        'templates',
         'package.json',
         'yarn.lock'
       ]
@@ -174,7 +176,23 @@ export default app => {
 
       const defaultKeywords = [
         'SWAP',
-        'SWAP App'
+        'SWAP App',
+        'generate',
+        'generategenerator',
+        'swap-project',
+        'SWAP Project',
+        'SWAP Generator',
+        'Node',
+        'NodeJS',
+        'ESNext',
+        'Standard',
+        'StandardJS',
+        'Babel',
+        'BabelJS',
+        'npm',
+        'yarn',
+        'sirap',
+        'sirap-group'
       ]
       app.choices('keywords', {
         message: 'Keywords ?',
