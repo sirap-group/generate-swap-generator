@@ -18,6 +18,12 @@
   </a>
 </p>
 
+## Demo example [@TODO]
+
+Check out the following repository to see what a project generated with `generate-swap-generator` looks like out the box:
+
+> [https://github.com/rbecheras/swap-generator-example](https://github.com/rbecheras/swap-generator-example)
+
 ## Installation
 
 ### Global
