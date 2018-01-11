@@ -3,7 +3,7 @@ layout: false
 rename:
   basename: 'CONTRIBUTING.md'
 ---
-# Contributing to generate-swap-project
+# Contributing to <%= ask(name) %>
 
 First and foremost, thank you! We appreciate that you want to contribute to generate-swap-project, your time is valuable, and your contributions mean a lot to us.
 
