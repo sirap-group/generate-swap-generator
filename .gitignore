@@ -1,0 +1,18 @@
+# packagers
+package-lock.json
+node_modules/
+bower_components/
+
+# Pipelines
+coverage/
+build/
+dist/
+
+# IDEs
+.vscode/
+
+# other paterns
+*.log
+~*
+*.lock
+!yarn.lock
