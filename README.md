@@ -3,7 +3,9 @@
 <p style="text-align:center">
   By <img src="src/assets/img/brand.png"/><br/>
   <span style="font-weight: bold; font-style: italic; font-size:1.5em">
-    −− Generate your own ESNext/StandardJS/UnitTest Ready Generators − A generator for SWAP generators − −−
+    −− Generate your own ESNext/StandardJS/UnitTest Ready Generators −−
+    <br>
+    −− A generator for SWAP generators −−
   </span><br>
   <a href="https://npmjs.org/package/generate-swap-generator" target="_blank">
     <img alt="NPM version" src="https://badge.fury.io/js/generate-swap-generator.svg"/>
