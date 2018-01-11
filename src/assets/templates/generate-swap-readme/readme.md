@@ -51,17 +51,25 @@ $ npm install --save <%= ask('name') %>
 
 ## Usage
 
-### Global
+### As a standalone generator (recommanded)
 
 ```sh
 $ <%= ask('name') %>
 ```
 
-### Local
+Should **@TODO: describe generator default action**
 
-```js
-import <%= camelcase(ask('name')) %> from '<%= ask('name') %>'
-<%= camelcase(ask('name')) %>()
+### Generated files
+
+**@TODO: generated files tree**
+
+```
+.
+├─┬ dir/
+| └─┬ subdir/
+|   ├─ example1.txt
+|   └─ example2.txt
+└── .travis.yml
 ```
 
 ### Example
@@ -69,6 +77,57 @@ import <%= camelcase(ask('name')) %> from '<%= ask('name') %>'
 #### Usage screenshot
 
 ![Usage example](src/assets/img/placehold-350x150.png)
+
+
+### As a generate plugin (if you know what you are doing)
+
+> You should first visit the generator framework, [generate](https://github.com/generate/generate) to understand how generators, subgenerators and plugins work.
+
+```js
+import <%= camelcase(ask('name')) %> from '<%= ask('name') %>'
+import isValid from 'is-valid-app'
+
+export default function (app) {
+  if (!isValid(app, 'generate-my-generator')) return
+
+  app.use(<%= camelcase(ask('name')) %>)
+
+  // ... your generator's stuff
+}
+```
+
+Then you can use directly any '<%= ask('name') %>' tasks as a `generate-my-generator` task.
+
+```
+$ gen my-generator:example-task
+```
+
+Should run `<%= ask('name') %>:example-task` on your own generator instance.
+
+### As a generate sub-generator (if you know what you are doing)
+
+> You should first visit the generator framework, [generate](https://github.com/generate/generate) to understand how generators, subgenerators and plugins work.
+
+```js
+import <%= camelcase(ask('name')) %> from '<%= ask('name') %>'
+import isValid from 'is-valid-app'
+
+export default function (app) {
+  if (!isValid(app, 'generate-my-generator')) return
+
+  app.register('<%= ask('alias') %>', <%= camelcase(ask('name')) %>)
+
+  // ... your generator's stuff
+}
+```
+
+Then you can acces easily any `<%= ask('name') %>` tasks as a `generate-my-generator` sub-generator task.
+
+```
+$ gen my-generator.<%= ask('alias') %>:example-task
+```
+
+Should run `<%= ask('name') %>:example-task` on your own generator instance.
 
 ## API
 
