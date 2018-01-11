@@ -14,10 +14,12 @@
   "license": "MIT",
   "main": "index.js",
   "files": [
+    "generator.js",
     "index.js",
     "LICENSE",
     "README.md",
     "dist/",
+    "templates",
     "package.json",
     "yarn.lock"
   ],
