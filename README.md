@@ -219,6 +219,7 @@ $ yarn pipeline:test
 | `yarn build` | Build the whole distribution |
 | `yarn build:assets` | Build all the assets |
 | `yarn build:assets:img` | Build the images assets |
+| `yarn build:assets:templates` | Build the generator's templates |
 | `yarn build:lib` | Build only the lib |
 | `yarn build:tests` | Build only the tests |
 | `yarn build:docs` | **[TODO]** Build only the docs |
@@ -230,8 +231,8 @@ $ yarn pipeline:test
 | `yarn pipeline:test` | Run the required jobs to run the tests, then run the tests |
 | `yarn pipeline:build` | Run the required jobs to build the dist, then build the dist |
 | `yarn pipeline:docs` | **[TODO]** Run the required jobs to serve the docs, then serve the docs |
-| `yarn pipeline:build:tests` | Run the required jobs to build the docs, then build the docs |
-| `yarn pipeline:build:lib` | Run the required jobs to build the docs, then build the docs |
+| `yarn pipeline:build:tests` | Run the required jobs to build the tests, then build the tests |
+| `yarn pipeline:build:lib` | Run the required jobs to build the lib, then build the lib |
 | `yarn pipeline:build:docs` | **[TODO]** Run the required jobs to build the docs, then build the docs |
 | `yarn release` | An alias to `yarn release:patch` |
 | `yarn release:prerelease` | Release and publish a new semver version (x.y.z-rc+1)|
