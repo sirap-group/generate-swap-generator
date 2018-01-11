@@ -261,6 +261,6 @@ The whole build pipeline is run locally (lint, transpile, test) and then a new g
 
 ## License
 
-Copyright © [<%= ask('owner') %>](https://github.com/<%= ask('namespace') %>)
+Copyright © [<%= ask('owner') %>](https://<%= ask('defaultHost') %>/<%= ask('namespace') %>)
 
 See [LICENSE](LICENSE)
