@@ -26,7 +26,7 @@ Check out the following repository to see what a project generated with `generat
 
 ## Installation
 
-### Global
+### Global install to use the generator as a standarlone CLI (recommanded)
 
 ```sh
 $ yarn gobal add generate-swap-generator
@@ -38,16 +38,18 @@ or
 $ npm install --global generate-swap-generator
 ```
 
-### Local
+### Local install to use as a `generate` plugin or sub-generator
+
+> You should first visit the generator framework, [generate](https://github.com/generate/generate) to understand how generators, subgenerators and plugins work.
 
 ```sh
-$ yarn add [-D] generate-swap-generator
+$ yarn add -D generate-swap-generator
 ```
 
 or
 
 ```sh
-$ npm install --save[-dev] generate-swap-generator
+$ npm install --save-dev generate-swap-generator
 ```
 
 ## Usage
