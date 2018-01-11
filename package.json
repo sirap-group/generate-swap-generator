@@ -55,8 +55,9 @@
   "keywords": [
     "SWAP",
     "SWAP App",
+    "generate",
     "generategenerator",
-    "SWAP swap-project",
+    "swap-project",
     "SWAP Project",
     "SWAP Generator",
     "Node",
@@ -67,7 +68,9 @@
     "Babel",
     "BabelJS",
     "npm",
-    "yarn"
+    "yarn",
+    "sirap",
+    "sirap-group"
   ],
   "devDependencies": {
     "babel-cli": "^6.26.0",
