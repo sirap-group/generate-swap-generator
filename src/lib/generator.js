@@ -4,22 +4,14 @@ import Logger from './utils/Logger'
 // import { task } from './utils/utils'
 
 import generateDefaults from 'generate-defaults'
-import generateDest from 'generate-dest'
 import generateGit from 'generate-git'
+import generateSwapProject from 'generate-swap-project'
 
-// import generatePackage from './subgenerators/generate-swap-package/generator'
-// import generateGitignore from './subgenerators/generate-swap-gitignore/generator'
-// import generateGitattributes from './subgenerators/generate-swap-gitattributes/generator'
-// import generateEditorconfig from './subgenerators/generate-swap-editorconfig/generator'
-// import generateNpmrc from './subgenerators/generate-swap-npmrc/generator'
-// import generateContributing from './subgenerators/generate-swap-contributing/generator'
-// import generateLicense from './subgenerators/generate-swap-license/generator'
-// import generateMain from './subgenerators/generate-swap-main/generator'
-// import generateReadme from './subgenerators/generate-swap-readme/generator'
-// import generateTravis from './subgenerators/generate-swap-travis/generator'
-// import generateGitlabci from './subgenerators/generate-swap-gitlabci/generator'
+import generatePackage from './subgenerators/generate-swap-package/generator'
+import generateMain from './subgenerators/generate-swap-main/generator'
+import generateReadme from './subgenerators/generate-swap-readme/generator'
 
-import promptTask from './tasks/prompt'
+// import promptTask from './tasks/prompt'
 
 const log = new Logger('generate-swap-generator')
 
@@ -32,26 +24,18 @@ export default function (app) {
    * Plugins
    */
   app.use(generateDefaults)
+  app.use(generateSwapProject)
 
   /**
    * Micro generators (as plugins)
    */
-  app.register('destination-directory', generateDest)
   app.register('git', generateGit)
-  // app.register('package', generatePackage)
-  // app.register('gitignore', generateGitignore)
-  // app.register('gitattributes', generateGitattributes)
-  // app.register('editorconfig', generateEditorconfig)
-  // app.register('npmrc', generateNpmrc)
-  // app.register('contributing', generateContributing)
-  // app.register('license', generateLicense)
-  // app.register('main', generateMain)
-  // app.register('readme', generateReadme)
-  // app.register('travis', generateTravis)
-  // app.register('gitlabci', generateGitlabci)
+  app.register('package', generatePackage)
+  app.register('main', generateMain)
+  app.register('readme', generateReadme)
 
   /**
-   * Scaffold out a(n) swap-project project.
+   * Scaffold out a swap-generator project using most of the swap-project plugin's tasks and the overriden tasks defined in this generator using local sub-generators. Also aliased as the [default](#default) task.
    *
    * ```sh
    * $ gen swap-generator:project
@@ -61,41 +45,73 @@ export default function (app) {
    */
   app.task('project', function (cb) {
     app.generate([
-      'swap-project:prompt',
-      'swap-project:dest',
-      'swap-project:package',
-      'swap-project:gitignore',
-      'swap-project:gitattributes',
-      'swap-project:editorconfig',
-      'swap-project:npmrc',
-      'swap-project:contributing',
-      'swap-project:license',
-      'swap-project:main',
-      'swap-project:readme',
-      'swap-project:travis',
-      'swap-project:gitlabci',
+      // from swap-project plugin
+      'prompt',
+      'dest',
+
+      // overriden by swap-generator-package local sub-generator
+      'package',
+
+      // from swap-project plugin
+      'gitignore',
+      'gitattributes',
+      'editorconfig',
+      'npmrc',
+      'contributing',
+      'license',
+
+      // overriden by swap-generator-main local sub-generator
+      'main',
+
+      // overriden by swap-generator-readme local sub-generator
+      'readme',
+
+      // from swap-project plugin
+      'travis',
+      'gitlabci',
+
+      // from git sub-generator
       'git:default'
     ], cb)
   })
 
   /**
-   * Change a swap-project to a swap-generator. Also aliased as the [default](#default) task.
+   * Create swap-generator:package task using swap-generator-package local subgenerator overriding the swap-project:package task
    *
    * ```sh
-   * $ gen swap-generator:project
+   * $ gen swap-generator:package
    * ```
-   * @name project
+   * @name package
    * @api public
    */
+  app.task('package', function (cb) {
+    app.generate([ 'swap-generator-package:default' ], cb)
+  })
 
-  app.task('generator', function (cb) {
-    app.generate([
-      'project',
-      'package',
-      'main',
-      'readme'
-      // 'git:default'
-    ], cb)
+  /**
+   * Create swap-generator:main task using swap-generator-main local subgenerator overriding the swap-project:main task
+   *
+   * ```sh
+   * $ gen swap-generator:main
+   * ```
+   * @name main
+   * @api public
+   */
+  app.task('main', function (cb) {
+    app.generate([ 'swap-generator-main:default' ], cb)
+  })
+
+  /**
+   * Create swap-generator:readme task using swap-generator-readme local subgenerator overriding the swap-project:readme task
+   *
+   * ```sh
+   * $ gen swap-generator:readme
+   * ```
+   * @name readme
+   * @api public
+   */
+  app.task('readme', function (cb) {
+    app.generate([ 'swap-generator-readme:default' ], cb)
   })
 
   /**
@@ -114,5 +130,5 @@ export default function (app) {
    * @name default
    * @api public
    */
-  app.task('default', ['generator'])
+  app.task('default', ['project'])
 }
