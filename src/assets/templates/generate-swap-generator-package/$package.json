@@ -1,28 +1,24 @@
+---
+layout: false
+rename:
+  basename: 'package.json'
+---
 {
-  "name": "generate-swap-generator",
-  "description": "Generate your own ESNext/StandardJS/UnitTest Ready Generators − A generator for SWAP generators −",
-  "version": "0.1.0",
-  "homepage": "https://github.com/rbecheras/generate-swap-generator",
-  "author": "Rémi Becheras (https://github.com/rbecheras)",
-  "repository": "git@github.com:rbecheras/generate-swap-generator.git",
+  "name": "<%= ask('name') %>",
+  "description": "<%= escapeQuotes(ask('description')) %>",
+  "version": "<%= ask('version', {default: '0.1.0'}) %>",
+  "homepage": "<%= ask('homepage') %>",
+  "author": "<%= ask('author.name') %> (<%= ask('author.url') %>)",
+  "repository": "<%= ask('repository') %>",
   "bugs": {
-    "url": "https://github.com/rbecheras/generate-swap-generator/issues"
+    "url": "<%= ask('issues') %>"
   },
   "engines": {
     "node": ">=4"
   },
-  "license": "MIT",
-  "main": "index.js",
-  "files": [
-    "generator.js",
-    "index.js",
-    "LICENSE",
-    "README.md",
-    "dist/",
-    "templates",
-    "package.json",
-    "yarn.lock"
-  ],
+  "license": "<%= ask('license', {default: 'MIT'}) %>",
+  "main": "<%= ask('main', {default: 'index.js'}) %>",
+  "files": "<%= arrayify(ask('files')) %>",
   "scripts": {
     "bdd": "yarn gulp -f scripts/gulp-tasks/watch.js watch:bdd",
     "clear": "yarn rimraf build dist",
@@ -52,26 +48,7 @@
     "release:major": "yarn gulp -f ./scripts/gulp-tasks/release.js release:major",
     "release:prerelease": "yarn gulp -f ./scripts/gulp-tasks/release.js release:prerelease"
   },
-  "keywords": [
-    "SWAP",
-    "SWAP App",
-    "generate",
-    "generategenerator",
-    "swap-project",
-    "SWAP Project",
-    "SWAP Generator",
-    "Node",
-    "NodeJS",
-    "ESNext",
-    "Standard",
-    "StandardJS",
-    "Babel",
-    "BabelJS",
-    "npm",
-    "yarn",
-    "sirap",
-    "sirap-group"
-  ],
+  "keywords": "<%= arrayify(ask('keywords')) %>",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.1.2",
@@ -105,7 +82,6 @@
     "generate-dest": "^0.1.4",
     "generate-git": "^0.2.0",
     "generate-package": "^0.7.3",
-    "generate-swap-project": "^1.1.0",
     "gulp-normalize-pkg": "^0.1.2",
     "helper-date": "^1.0.1",
     "is-valid-app": "^0.3.0",

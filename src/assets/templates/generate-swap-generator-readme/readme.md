@@ -1,22 +1,27 @@
+---
+layout: false
+rename:
+  basename: 'README.md'
+---
 <h1 align="center">
   <a href="https://github.com/sirap-group"><img src="src/assets/img/brand.png"/></a>
   <br>
-  −− generate-swap-generator −− [A Current Work-In-Progress]
+  −− <%= ask('name') %> −−
   <br>
   <br>
 </h1>
 
 <p align="center">
-  <a href="https://travis-ci.org/sirap-group/generate-swap-generator" target="_blank">
-    <img alt="Build Status" src="https://travis-ci.org/sirap-group/generate-swap-generator.svg?branch=master"/>
+  <a href="https://travis-ci.org/<%= ask('namespace') %>/<%= ask('name') %>" target="_blank">
+    <img alt="Build Status" src="https://travis-ci.org/<%= ask('namespace') %>/<%= ask('name') %>.svg?branch=master"/>
   </a>
 
-  <a href="https://www.npmjs.com/package/generate-swap-generator">
-    <img src="https://img.shields.io/npm/dm/generate-swap-generator.svg" alt="npm downloads">
+  <a href="https://www.npmjs.com/package/<%= ask('name') %>">
+    <img src="https://img.shields.io/npm/dm/<%= ask('name') %>.svg" alt="npm downloads">
   </a>
 
-  <a href="https://npmjs.org/package/generate-swap-generator" target="_blank">
-    <img alt="NPM version" src="https://badge.fury.io/js/generate-swap-generator.svg"/>
+  <a href="https://npmjs.org/package/<%= ask('name') %>" target="_blank">
+    <img alt="NPM version" src="https://badge.fury.io/js/<%= ask('name') %>.svg"/>
   </a>
 
   <a href="https://standardjs.com" target="_blank">
@@ -25,41 +30,35 @@
 </p>
 
 <h4 align="center">
-  −− Generate your own ESNext/StandardJS/UnitTest Ready Generators −−
+  −− <%= ask('description') %> −−
 </h4>
-
-## Demo example [@TODO]
-
-Check out the following repository to see what a project generated with `generate-swap-generator` looks like out the box:
-
-> [https://github.com/rbecheras/swap-generator-example](https://github.com/rbecheras/swap-generator-example)
 
 ## Installation
 
 ### Global install to use the generator as a standarlone CLI (recommanded)
 
 ```sh
-$ yarn gobal add generate-swap-generator
+$ yarn gobal add <%= ask('name') %>
 ```
 
 or
 
 ```sh
-$ npm install --global generate-swap-generator
+$ npm install --global <%= ask('name') %>
 ```
 
 ### Local install to use as a `generate` plugin or sub-generator
 
-> You should first visit the generator framework, [generate](https://github.com/generate/generate) to understand how generators, subgenerators and plugins work.
+> You should first visit the generator framework, [generate](https://github.com/generate/generate) to understand how generators, subgenerators and plugins work. See also [related projects](#related-projects)
 
 ```sh
-$ yarn add generate-swap-generator
+$ yarn add <%= ask('name') %>
 ```
 
 or
 
 ```sh
-$ npm install --save generate-swap-generator
+$ npm install --save <%= ask('name') %>
 ```
 
 ## Usage
@@ -67,95 +66,80 @@ $ npm install --save generate-swap-generator
 ### As a standalone generator (recommanded)
 
 ```sh
-$ generate-swap-generator
+$ <%= ask('name') %>
 ```
 
-Should scaffold the project in the destination path you choose when asked.
+Should **@TODO: describe generator default action**
 
 ### Generated files
 
+**@TODO: generated files tree**
+
 ```
 .
-├─┬ src/
-| ├─┬ tests/
-| | ├─ plugin.js
-| | └─ index.js
-| ├─┬ assets/
-| | ├─┬ img/
-| | | └── ...
-| | └─┬ templates/
-| |   └── example.txt
-| └─┬ lib/
-|   └─ generator.js
-├── contributing.md
-├── .editorconfig
-├── .git
-├── .gitattributes
-├── .gitignore
-├── .gitlab-ci.yml
-├── index.js
-├── generator.js
-├── LICENSE
-├── node_modules
-├── .npmrc
-├── package.json
-├── README.md
+├─┬ dir/
+| └─┬ subdir/
+|   ├─ example1.txt
+|   └─ example2.txt
 └── .travis.yml
 ```
+
+### Example
 
 #### Usage screenshot
 
 ![Usage example](src/assets/img/placehold-350x150.png)
+
 
 ### As a generate plugin (if you know what you are doing)
 
 > You should first visit the generator framework, [generate](https://github.com/generate/generate) to understand how generators, subgenerators and plugins work.
 
 ```js
-import generateSwapGenerator from 'generate-swap-generator'
+import <%= camelcase(ask('name')) %> from '<%= ask('name') %>'
 import isValid from 'is-valid-app'
 
 export default function (app) {
   if (!isValid(app, 'generate-my-generator')) return
 
-  app.use(generateSwapGenerator)
+  app.use(<%= camelcase(ask('name')) %>)
 
   // ... your generator's stuff
 }
 ```
 
-Then you can use directly any `generate-swap-generator` tasks as a `generate-my-generator` task.
+Then you can use directly any '<%= ask('name') %>' tasks as a `generate-my-generator` task.
 
 ```
-$ gen my-generator:keywords
+$ gen my-generator:example-task
 ```
 
-Should run `generate-swap-generator:keywords` on your own generator instance.
+Should run `<%= ask('name') %>:example-task` on your own generator instance.
 
 ### As a generate sub-generator (if you know what you are doing)
 
 > You should first visit the generator framework, [generate](https://github.com/generate/generate) to understand how generators, subgenerators and plugins work.
 
 ```js
-import generateSwapGenerator from 'generate-swap-generator'
+import <%= camelcase(ask('name')) %> from '<%= ask('name') %>'
 import isValid from 'is-valid-app'
 
 export default function (app) {
   if (!isValid(app, 'generate-my-generator')) return
 
-  app.register('swap-generator', generateSwapGenerator)
+  app.register('<%= ask('alias') %>', <%= camelcase(ask('name')) %>)
 
   // ... your generator's stuff
 }
 ```
 
-Then you can acces easily any `generate-swap-generator` tasks as a `generate-my-generator` sub-generator task.
+Then you can acces easily any `<%= ask('name') %>` tasks as a `generate-my-generator` sub-generator task.
 
 ```
-$ gen my-generator.swap-generator:keywords
+$ gen my-generator.<%= ask('alias') %>:example-task
 ```
 
-Should run `generate-swap-generator:keywords` on your own generator instance.
+Should run `<%= ask('name') %>:example-task` on your own generator instance.
 
 ## API
 
@@ -207,8 +191,8 @@ All the rest of the development dependencies are local.
 Clone the repo and install dependencies:
 
 ```sh
-$ git clone git@github.com:rbecheras/generate-swap-generator.git
-$ cd generate-swap-generator
+$ git clone git@github.com:<%= ask('namespace') %>/<%= ask('name') %>.git
+$ cd <%= ask('name') %>
 $ yarn install
 ```
 #### Running test
@@ -241,8 +225,8 @@ $ yarn pipeline:test
 | `yarn pipeline:test` | Run the required jobs to run the tests, then run the tests |
 | `yarn pipeline:build` | Run the required jobs to build the dist, then build the dist |
 | `yarn pipeline:docs` | **[TODO]** Run the required jobs to serve the docs, then serve the docs |
-| `yarn pipeline:build:tests` | Run the required jobs to build the tests, then build the tests |
-| `yarn pipeline:build:lib` | Run the required jobs to build the lib, then build the lib |
+| `yarn pipeline:build:tests` | Run the required jobs to build the docs, then build the docs |
+| `yarn pipeline:build:lib` | Run the required jobs to build the docs, then build the docs |
 | `yarn pipeline:build:docs` | **[TODO]** Run the required jobs to build the docs, then build the docs |
 | `yarn release` | An alias to `yarn release:patch` |
 | `yarn release:prerelease` | Release and publish a new semver version (x.y.z-rc+1)|
@@ -274,8 +258,10 @@ $ yarn release:patch
 
 The whole build pipeline is run locally (lint, transpile, test) and then a new git tag and a new npm tag are pushed up.
 
+
 ## Related projects
 
+* [generate-swap-generators](https://npmjs.com/generate-swap-generators) Generate An ES.Next/StandardJS/UnitTest Ready, Github or Gitlab Project in Seconds! − A generator for SWAP projects [github](https://github.com/rbecheras/generate-swap-generators) | [homepage](https://rbecheras.github.io/generate-swap-generators/)
 * [generate-swap-project](https://npmjs.com/generate-swap-project) Generate An ES.Next/StandardJS/UnitTest Ready, Github or Gitlab Project in Seconds! − A generator for SWAP projects [github](https://github.com/rbecheras/generate-swap-project) | [homepage](https://rbecheras.github.io/generate-swap-project/)
 * [generate](https://npmjs.com/generate) A new command line tool and developer framework for scaffolding out GitHub projects. Generate offers the robustness and configurability of Yeoman, the expressiveness and simplicity of Slush, and more powerful flow control and composability than either [github](https://github.com/generate/generate) | [homepage](https://generate.github.io/generate/)
 * [base](https://www.npmjs.com/package/base): Framework for rapidly creating high quality node.js applications, using plugins like building blocks | [homepage](https://github.com/node-base/base "Framework for rapidly creating high quality node.js applications, using plugins like building blocks")
@@ -287,6 +273,6 @@ The whole build pipeline is run locally (lint, transpile, test) and then a new g
 
 ## License
 
-Copyright © [Groupe SIRAP](https://github.com/rbecheras)
+Copyright © [<%= ask('owner') %>](https://<%= ask('defaultHost') %>/<%= ask('namespace') %>)
 
 See [LICENSE](LICENSE)

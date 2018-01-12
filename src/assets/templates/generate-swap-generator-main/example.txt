@@ -1,0 +1,8 @@
+---
+layout: false
+rename:
+  basename: 'src/assets/templates/example.txt'
+---
+This is a example template for <%= ask('name') %> generator !
+
+By <%= ask('owner') %>, license <%= ask('license') %>
