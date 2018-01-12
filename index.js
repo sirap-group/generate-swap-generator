@@ -1,1 +1,1 @@
-module.exports = require('./dist/lib/generator.js')
+module.exports = require('./generator')
