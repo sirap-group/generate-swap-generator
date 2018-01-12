@@ -26,7 +26,14 @@ export default function (app) {
    * @name main
    * @api public
    */
-  app.task('main', ['index-root', 'generator-root', 'generator-src', 'generator-test', 'plugin-test'])
+  app.task('main', ['set-default-githost', 'index-root', 'generator-root', 'generator-src', 'generator-test', 'plugin-test'])
+
+  app.task('set-default-githost', done => {
+    const githosts = app.base.data('githosts')
+    const defaultHost = (githosts.length > 1) ? 'github.com' : githosts[0]
+    app.base.data({defaultHost})
+    done()
+  })
 
   /**
    * Create the root index file
