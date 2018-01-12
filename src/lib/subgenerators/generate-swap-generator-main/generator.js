@@ -70,7 +70,7 @@ export default function (app) {
    * @name generator-test
    * @api public
    */
-  task(app, 'generator-test', 'generate-swap-generator-main/generator-test.js')
+  task(app, 'generator-test', 'generate-swap-generator-main/generator.test.js')
 
   /**
    * Create the test plugin file
@@ -81,7 +81,7 @@ export default function (app) {
    * @name plugin-test
    * @api public
    */
-  task(app, 'plugin-test', 'generate-swap-generator-main/plugin-test.js')
+  task(app, 'plugin-test', 'generate-swap-generator-main/plugin.test.js')
 
   /**
    * Run the `default` task
