@@ -7,9 +7,9 @@ import generateDefaults from 'generate-defaults'
 import generateGit from 'generate-git'
 import generateSwapProject from 'generate-swap-project'
 
-import generatePackage from './subgenerators/generate-swap-package/generator'
-import generateMain from './subgenerators/generate-swap-main/generator'
-import generateReadme from './subgenerators/generate-swap-readme/generator'
+import generatePackage from './subgenerators/generate-swap-generator-package/generator'
+import generateMain from './subgenerators/generate-swap-generator-main/generator'
+import generateReadme from './subgenerators/generate-swap-generator-readme/generator'
 
 // import promptTask from './tasks/prompt'
 
