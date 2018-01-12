@@ -26,7 +26,7 @@ export default function (app) {
    * @name main
    * @api public
    */
-  app.task('main', ['index-root', 'index-src', 'index-test'])
+  app.task('main', ['index-root', 'generator-root', 'generator-src', 'generator-test', 'plugin-test'])
 
   /**
    * Create the root index file
@@ -40,26 +40,48 @@ export default function (app) {
   task(app, 'index-root', 'generate-swap-main/index-root.js')
 
   /**
-   * Create the src index file
+   * Create the root generator file
    *
    * ```sh
-   * $ gen swap-main:index-src
+   * $ gen swap-main:generator-root
    * ```
-   * @name index-src
+   * @name generator-root
    * @api public
    */
-  task(app, 'index-src', 'generate-swap-main/index-src.js')
+  task(app, 'generator-root', 'generate-swap-main/generator-root.js')
 
   /**
-   * Create the test index file
+   * Create the src generator file
    *
    * ```sh
-   * $ gen swap-main:index-test
+   * $ gen swap-main:generator-src
    * ```
-   * @name index-test
+   * @name generator-src
    * @api public
    */
-  task(app, 'index-test', 'generate-swap-main/index-test.js')
+  task(app, 'generator-src', 'generate-swap-main/generator-src.js')
+
+  /**
+   * Create the test generator file
+   *
+   * ```sh
+   * $ gen swap-main:generator-test
+   * ```
+   * @name generator-test
+   * @api public
+   */
+  task(app, 'generator-test', 'generate-swap-main/generator-test.js')
+
+  /**
+   * Create the test plugin file
+   *
+   * ```sh
+   * $ gen swap-main:plugin-test
+   * ```
+   * @name plugin-test
+   * @api public
+   */
+  task(app, 'plugin-test', 'generate-swap-main/plugin-test.js')
 
   /**
    * Run the `default` task
