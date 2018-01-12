@@ -9,10 +9,10 @@ import Logger from '../../utils/Logger'
 
 import generateDefaults from 'generate-defaults'
 
-const log = new Logger('generate-swap-readme')
+const log = new Logger('generate-swap-generator-readme')
 
 export default function (app) {
-  if (!isValid(app, 'generate-swap-readme')) return
+  if (!isValid(app, 'generate-swap-generator-readme')) return
 
   app.on('error', ::log.error)
 
@@ -30,7 +30,7 @@ export default function (app) {
    * @name readme
    * @api public
    */
-  task(app, 'readme', 'generate-swap-readme/readme.md')
+  task(app, 'readme', 'generate-swap-generator-readme/readme.md')
 
   /**
    * Write required assets images to src/assets/img

@@ -7,10 +7,10 @@ import Logger from '../../utils/Logger'
 
 import generateDefaults from 'generate-defaults'
 
-const log = new Logger('generate-swap-package')
+const log = new Logger('generate-swap-generator-package')
 
 export default function (app) {
-  if (!isValid(app, 'generate-swap-package')) return
+  if (!isValid(app, 'generate-swap-generator-package')) return
 
   app.on('error', ::log.error)
 
@@ -31,7 +31,7 @@ export default function (app) {
    * @name file
    * @api public
    */
-  task(app, 'package', 'generate-swap-package/$package.json')
+  task(app, 'package', 'generate-swap-generator-package/$package.json')
 
   /**
    * Write a `release.js` file to the `scripts/gulp-tasks/` directory.
@@ -42,7 +42,7 @@ export default function (app) {
    * @name gulp-release
    * @api public
    */
-  task(app, 'gulp-release', 'generate-swap-package/gulp-tasks/release.js')
+  task(app, 'gulp-release', 'generate-swap-generator-package/gulp-tasks/release.js')
 
   /**
    * Write a `watch.js` file to the `scripts/gulp-tasks/` directory.
@@ -53,7 +53,7 @@ export default function (app) {
    * @name gulp-watch
    * @api public
    */
-  task(app, 'gulp-watch', 'generate-swap-package/gulp-tasks/watch.js')
+  task(app, 'gulp-watch', 'generate-swap-generator-package/gulp-tasks/watch.js')
 
   /**
    * Run the `package` task
