@@ -1,22 +1,32 @@
-# generate-swap-generator (Work-In-Progress...)
+<h1 align="center">
+  <a href="https://github.com/sirap-group"><img src="src/assets/img/brand.png"/></a>
+  <br>
+  −− generate-swap-generator −− [A Current Work-In-Progress]
+  <br>
+  <br>
+</h1>
 
-<p style="text-align:center">
-  By <img src="src/assets/img/brand.png"/><br/>
-  <span style="font-weight: bold; font-style: italic; font-size:1.5em">
-    −− Generate your own ESNext/StandardJS/UnitTest Ready Generators −−
-    <br>
-    −− A generator for SWAP generators −−
-  </span><br>
+<p align="center">
+  <a href="https://travis-ci.org/sirap-group/generate-swap-generator" target="_blank">
+    <img alt="Build Status" src="https://travis-ci.org/sirap-group/generate-swap-generator.svg?branch=master"/>
+  </a>
+
+  <a href="https://www.npmjs.com/package/generate-swap-generator">
+    <img src="https://img.shields.io/npm/dm/generate-swap-generator.svg" alt="npm downloads">
+  </a>
+
   <a href="https://npmjs.org/package/generate-swap-generator" target="_blank">
     <img alt="NPM version" src="https://badge.fury.io/js/generate-swap-generator.svg"/>
   </a>
-  <a href="https://travis-ci.org/rbecheras/generate-swap-generator" target="_blank">
-    <img alt="Build Status" src="https://travis-ci.org/rbecheras/generate-swap-generator.svg?branch=master"/>
-  </a>
+
   <a href="https://standardjs.com" target="_blank">
     <img alt="JavaScript Style Guide" src="https://img.shields.io/badge/code_style-standard-brightgreen.svg"/>
   </a>
 </p>
+
+<h4 align="center">
+  −− Generate your own ESNext/StandardJS/UnitTest Ready Generators −−
+</h4>
 
 ## Demo example [@TODO]
 
