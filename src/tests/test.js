@@ -152,6 +152,7 @@ describe('generate-swap-project', function () {
     app.data('issues', 'http://githost/namespace/repo/issues')
     app.data('version', 'v5.5.5')
     app.data('mainFile', 'index.js')
+    app.data('githosts', ['github.com', 'srv1.githost.com', 'srv5.gitlab.com'])
   }
 })
 
