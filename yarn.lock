@@ -3551,6 +3551,22 @@ generate-package@^0.7.3:
     is-valid-app "^0.2.1"
     lazy-cache "^2.0.2"
 
+generate-swap-project@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/generate-swap-project/-/generate-swap-project-1.1.0.tgz#cff29fbb3b20fd5a453bdc94450aa06f285e3962"
+  dependencies:
+    babel-runtime "^6.26.0"
+    debug "^3.1.0"
+    extend "^3.0.1"
+    generate-defaults "^0.6.6"
+    generate-dest "^0.1.4"
+    generate-git "^0.2.0"
+    generate-package "^0.7.3"
+    gulp-normalize-pkg "^0.1.2"
+    helper-date "^1.0.1"
+    is-valid-app "^0.3.0"
+    prettier-inspect "^1.0.0"
+
 generate@^0.14.0:
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/generate/-/generate-0.14.0.tgz#3d93e709fe2365daf4b0635f30d237a96e19f380"
