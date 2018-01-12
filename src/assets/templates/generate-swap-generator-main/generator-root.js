@@ -1,6 +1,6 @@
 ---
 layout: false
 rename:
-  basename: 'src/lib/generator.js'
+  basename: 'generator.js'
 ---
 module.exports = require('./dist/index.js')
