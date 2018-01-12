@@ -30,9 +30,9 @@ export default function (app) {
    * Micro generators (as plugins)
    */
   app.register('git', generateGit)
-  app.register('package', generatePackage)
-  app.register('main', generateMain)
-  app.register('readme', generateReadme)
+  app.register('swap-generator-package', generatePackage)
+  app.register('swap-generator-main', generateMain)
+  app.register('swap-generator-readme', generateReadme)
 
   /**
    * Scaffold out a swap-generator project using most of the swap-project plugin's tasks and the overriden tasks defined in this generator using local sub-generators. Also aliased as the [default](#default) task.
