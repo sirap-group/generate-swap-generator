@@ -78,8 +78,8 @@ Should scaffold the project in the destination path you choose when asked.
 .
 ├─┬ src/
 | ├─┬ tests/
-| | ├─ plugin.js
-| | └─ index.js
+| | ├─ generator.test.js
+| | └─ plugin.test.js
 | ├─┬ assets/
 | | ├─┬ img/
 | | | └── ...
