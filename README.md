@@ -1,7 +1,7 @@
 <h1 align="center">
   <a href="https://github.com/sirap-group"><img src="src/assets/img/brand.png"/></a>
   <br>
-  −− generate-swap-generator −− [A Current Work-In-Progress]
+  −− generate-swap-generator −−
   <br>
   <br>
 </h1>
