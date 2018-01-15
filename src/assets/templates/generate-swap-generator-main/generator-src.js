@@ -72,6 +72,10 @@ export default function (app) {
     app.generate(['destination-directory:default'], cb)
   })
 
+  app.task('subgenerator-example', function (cb) {
+    app.generate(['subgenerator-example:default'], cb)
+  })
+
   /**
    * Define the example task
    *
