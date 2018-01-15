@@ -5,7 +5,6 @@ rename:
 ---
 import isValid from 'is-valid-app'
 
-import Logger from './utils/Logger'
 import { task } from './utils/utils'
 
 import generateDefaults from 'generate-defaults'
@@ -13,12 +12,10 @@ import generateDest from 'generate-dest'
 
 import promptTask from './tasks/prompt'
 
-const log = new Logger('<%= ask('name') %>')
-
 export default function (app) {
   if (!isValid(app, '<%= ask('name') %>')) return
 
-  app.on('error', ::log.error)
+  app.on('error', err => app.log.error(err))
 
   /**
    * Use Plugins
