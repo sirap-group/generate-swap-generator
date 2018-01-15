@@ -11,7 +11,7 @@ import generatePackage from './subgenerators/generate-swap-generator-package/gen
 import generateMain from './subgenerators/generate-swap-generator-main/generator'
 import generateReadme from './subgenerators/generate-swap-generator-readme/generator'
 
-// import promptTask from './tasks/prompt'
+import promptTask from './tasks/prompt'
 
 const log = new Logger('generate-swap-generator')
 
@@ -74,6 +74,8 @@ export default function (app) {
       'git:default'
     ], cb)
   })
+
+  app.task('prompt', promptTask(app))
 
   /**
    * Create swap-generator:package task using swap-generator-package local subgenerator overriding the swap-project:package task
