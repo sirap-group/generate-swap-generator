@@ -31,6 +31,11 @@ rename:
 
 <h4 align="center">
   −− <%= ask('description') %> −−
+  <br>
+  <br>
+  <a href="https://www.npmjs.com/package/<%= ask('name') %>" target="_blank">
+    <img alt="NPM Stats" src="https://nodei.co/npm/<%= ask('name') %>.png?downloads=true&downloadRank=true&stars=true"/>
+  </a>
 </h4>
 
 ## Installation
