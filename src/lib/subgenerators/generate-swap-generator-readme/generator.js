@@ -37,9 +37,9 @@ export default function (app) {
    * Write required assets images to src/assets/img
    *
    * ```sh
-   * $ gen swap-readme:readme
+   * $ gen swap-readme:assets
    * ```
-   * @name readme
+   * @name assets
    * @api public
    */
   app.task('assets', done => {
