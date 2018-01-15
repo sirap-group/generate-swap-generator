@@ -129,6 +129,7 @@ export default function (app) {
   app.task('libs', ['libs-utils-utils'])
   task(app, 'libs-utils-utils', 'generate-swap-generator-main/libs-utils-utils.js')
   task(app, 'libs-tasks-prompt', 'generate-swap-generator-main/libs-tasks-prompt.js')
+  task(app, 'libs-subgenerator-example', 'generate-swap-generator-main/libs-subgenerator-example.js')
 
   /**
    * Run the `default` task

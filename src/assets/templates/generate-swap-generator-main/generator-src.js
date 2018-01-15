@@ -10,6 +10,8 @@ import { task } from './utils/utils'
 import generateDefaults from 'generate-defaults'
 import generateDest from 'generate-dest'
 
+import generateSubgeneratorExample from './subgenerators/generate-subgenerator-example/generator'
+
 import promptTask from './tasks/prompt'
 
 export default function (app) {
@@ -26,6 +28,7 @@ export default function (app) {
    * Register Sub Generators
    */
   app.register('destination-directory', generateDest)
+  app.register('subgenerator-example', generateSubgeneratorExample)
 
   /**
    * Run main task <%= alias %>. Also aliased as the [default](#default) task.
@@ -67,6 +70,10 @@ export default function (app) {
    */
   app.task('dest', function (cb) {
     app.generate(['destination-directory:default'], cb)
+  })
+
+  app.task('subgenerator-example', function (cb) {
+    app.generate(['subgenerator-example:default'], cb)
   })
 
   /**

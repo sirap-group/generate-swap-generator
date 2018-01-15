@@ -1,0 +1,11 @@
+---
+layout: false
+rename:
+  basename: 'src/assets/templates/generate-subgenerator-example/example-subgenerator.txt'
+---
+---
+layout: false
+rename:
+  basename: 'example-subgenerator.txt'
+---
+This is an example template for subgenerator-example.
