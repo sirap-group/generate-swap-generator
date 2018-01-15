@@ -1,5 +1,3 @@
-'use strict'
-
 export { escapeQuotes, camelcase }
 
 function escapeQuotes (str) {
