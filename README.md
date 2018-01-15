@@ -7,8 +7,8 @@
 </h1>
 
 <p align="center">
-  <a href="https://travis-ci.org/sirap-group/generate-swap-generator" target="_blank">
-    <img alt="Build Status" src="https://travis-ci.org/sirap-group/generate-swap-generator.svg?branch=master"/>
+  <a href="https://travis-ci.org/rbecheras/generate-swap-generator" target="_blank">
+    <img alt="Build Status" src="https://travis-ci.org/rbecheras/generate-swap-generator.svg?branch=master"/>
   </a>
 
   <a href="https://www.npmjs.com/package/generate-swap-generator">
