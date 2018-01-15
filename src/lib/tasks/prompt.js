@@ -31,7 +31,7 @@ export default app => {
 
     app.question('name', {
       message: 'Project name ?',
-      default: 'generate-swap-my-generator'
+      default: 'generate-my-swap-generator'
     })
     askPromise(['name'])
     .then(answers => {
