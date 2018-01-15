@@ -93,5 +93,5 @@ export default function (app) {
    * @name default
    * @api public
    */
-  app.task('default', ['assets', 'readme'])
+  app.task('default', ['assets', 'brand-placehold', 'readme'])
 }
