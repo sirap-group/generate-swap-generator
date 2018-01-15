@@ -1,4 +1,6 @@
 import isValid from 'is-valid-app'
+import path from 'path'
+import extend from 'extend'
 
 import { task } from '../../utils/utils'
 import Logger from '../../utils/Logger'
@@ -26,7 +28,7 @@ export default function (app) {
    * @name main
    * @api public
    */
-  app.task('main', ['set-default-githost', 'index-root', 'generator-root', 'generator-src', 'generator-test', 'plugin-test'])
+  app.task('main', ['set-default-githost', 'index-root', 'generator-root', 'generator-src', 'generator-test', 'plugin-test', 'template-example'])
 
   app.task('set-default-githost', done => {
     const githosts = app.base.data('githosts')
@@ -89,6 +91,31 @@ export default function (app) {
    * @api public
    */
   task(app, 'plugin-test', 'generate-swap-generator-main/plugin.test.js')
+
+  /**
+   * Create the example template file (not rendered by swap-generator by by the generated generator)
+   *
+   * ```sh
+   * $ gen swap-main:template-example
+   * ```
+   * @name template-example
+   * @api public
+   */
+  app.task('template-example', done => {
+    const opts = extend({}, app.base.options, app.options)
+    const cwd = path.join(__dirname, '../../../../src/assets/templates/generate-swap-generator-main')
+    const base = cwd
+    const dest = opts.dest
+
+    // copy template "<generator-dir>/src/assets/templates/generate-swap-generator-main/example.txt"
+    // to "<cwd>/src/assets/templates/example.txt"
+    // console.log({cwd, base, dest})
+    // I don't understand why it works ignoring the "generate-swap-generator-main" folder but it does.
+    app.src('example.txt', {cwd, base})
+    .pipe(app.dest(dest))
+    .on('finish', done)
+    .on('error', done)
+  })
 
   /**
    * Run the `default` task
