@@ -2,6 +2,7 @@ import path from 'path'
 import extend from 'extend'
 import isValid from 'is-valid-app'
 import helperDate from 'helper-date'
+import rename from 'gulp-rename'
 
 import { task } from '../../utils/utils'
 import { camelcaseHelper } from '../../utils/helpers'
@@ -48,6 +49,30 @@ export default function (app) {
 
     app.src('assets/img/**/*', {cwd: srcBase, base: srcBase})
     .pipe(app.dest(dest))
+    .on('finish', done)
+    .on('error', done)
+  })
+
+  /**
+   * Use a placeholder for brand image
+   *
+   * ```sh
+   * $ gen swap-readme:brand-placeholder
+   * ```
+   * @name brand-placeholder
+   * @api public
+   */
+  app.task('brand-placehold', done => {
+    const opts = extend({}, app.base.options, app.options)
+    if (opts.dest) {
+      opts.srcBase = path.join(opts.dest, 'src')
+    }
+    const srcBase = opts.srcBase || path.join(__dirname, '../../../../src')
+    const destDir = path.join(app.cwd, 'src/assets/img/')
+
+    app.src('assets/img/placehold-350x150.png', {cwd: srcBase, base: srcBase})
+    .pipe(rename('brand.png'))
+    .pipe(app.dest(destDir))
     .on('finish', done)
     .on('error', done)
   })
