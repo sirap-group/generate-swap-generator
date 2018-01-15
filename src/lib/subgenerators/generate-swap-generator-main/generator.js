@@ -118,6 +118,18 @@ export default function (app) {
   })
 
   /**
+   * Copy the lib files
+   *
+   * ```sh
+   * $ gen swap-main:lib
+   * ```
+   * @name lib
+   * @api public
+   */
+  app.task('libs', ['libs-utils-utils'])
+  task(app, 'libs-utils-utils', 'generate-swap-generator-main/libs-utils-utils.js')
+
+  /**
    * Run the `default` task
    *
    * ```sh
