@@ -26,6 +26,11 @@
 
 <h4 align="center">
   −− Generate your own ESNext/StandardJS/UnitTest Ready Generators −−
+  <br>
+  <br>
+  <a href="https://www.npmjs.com/package/generate-swap-generator" target="_blank">
+    <img alt="NPM Stats" src="https://nodei.co/npm/generate-swap-generator.png?downloads=true&downloadRank=true&stars=true"/>
+  </a>
 </h4>
 
 ## Demo example [@TODO]
