@@ -31,7 +31,7 @@ export default app => {
 
     app.question('name', {
       message: 'Project name ?',
-      default: 'my-swap-app'
+      default: 'my-swap-generator'
     })
     askPromise(['name'])
     .then(answers => {
@@ -44,7 +44,7 @@ export default app => {
       })
       app.question('description', {
         message: 'Description ?',
-        default: `${name} SWAP app`
+        default: `${name} SWAP Generator`
       })
       app.choices('githosts', {
         message: 'Git host platform ?',
@@ -68,6 +68,7 @@ export default app => {
         ? `https://github.com/${authorUsername}`
         : `https://gitlab.sirap.fr/${authorUsername}`
 
+      app.base.data({defaultHost})
       app.base.data(answers)
 
       app.question('author.url', {
@@ -178,10 +179,12 @@ export default app => {
         'SWAP',
         'SWAP App',
         'generate',
+        'Generator',
         'generategenerator',
+        'Generate Generator',
+        'SWAP Generator',
         'swap-project',
         'SWAP Project',
-        'SWAP Generator',
         'Node',
         'NodeJS',
         'ESNext',
