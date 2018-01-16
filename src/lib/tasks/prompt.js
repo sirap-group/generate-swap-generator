@@ -27,7 +27,7 @@ export default app => {
       // console.log({response, key, question, answers})
     })
 
-    let name, defaultHost, files, authorName
+    let name, defaultHost, files, authorName, keywords
 
     app.question('alias', {
       message: 'Generator alias ?',
@@ -162,16 +162,11 @@ export default app => {
 
       app.base.data({files})
 
-      const defaultKeywords = [
-        'SWAP',
-        'SWAP App',
+      const requiredKeywords = [
         'generate',
         'Generator',
         'generategenerator',
         'Generate Generator',
-        'SWAP Generator',
-        'swap-project',
-        'SWAP Project',
         'Node',
         'NodeJS',
         'ESNext',
@@ -180,25 +175,42 @@ export default app => {
         'Babel',
         'BabelJS',
         'npm',
-        'yarn',
+        'yarn'
+      ]
+
+      keywords = requiredKeywords
+      app.log.success('The required preset keywords are the following: ' + requiredKeywords.join(','))
+
+      const suggestedKeywords = [
+        'SWAP',
+        'SWAP App',
+        'SWAP Generator',
+        'swap-project',
+        'SWAP Project',
         'sirap',
         'sirap-group'
       ]
-      app.choices('keywords', {
-        message: 'Keywords ?',
-        choices: defaultKeywords
+
+      app.choices('suggestedKeywords', {
+        message: 'Suggested additionnal keywords ?',
+        choices: suggestedKeywords
       })
       app.question('additionnalKeywords', {
         message: 'Additionnal keywords (comma separated) ?'
       })
 
-      return askPromise(['keywords', 'additionnalKeywords'])
+      return askPromise(['suggestedKeywords', 'additionnalKeywords'])
     })
-    .then(({keywords, additionnalKeywords}) => {
+    .then(({suggestedKeywords, additionnalKeywords}) => {
+      if (suggestedKeywords && suggestedKeywords.length) {
+        suggestedKeywords.split(',')
+        .map(s => s.trim())
+        .forEach(keyword => keywords.push(keyword))
+      }
       if (additionnalKeywords && additionnalKeywords.length) {
         additionnalKeywords.split(',')
         .map(s => s.trim())
-        .forEach(adKeyword => keywords.push(adKeyword))
+        .forEach(keyword => keywords.push(keyword))
       }
 
       app.base.data({keywords})
