@@ -143,15 +143,9 @@ export default app => {
         'package.json',
         'yarn.lock'
       ]
-      app.choices('files', {
-        message: 'Packaged files ?',
-        choices: defaultFiles
-      })
+      !app.option('silent') && app.log.success('Required packaged files are the following:', defaultFiles)
 
-      return askPromise(['files'])
-    })
-    .then(answers => {
-      files = answers.files
+      files = defaultFiles
 
       app.question('additionnalFiles', {
         message: 'Additionnal files (comma separated) ?'
