@@ -28,7 +28,7 @@ export default function (app) {
    * @name main
    * @api public
    */
-  app.task('main', ['set-default-githost', 'index-root', 'generator-root', 'generator-src', 'generator-test', 'plugin-test', 'template-example'])
+  app.task('main', ['set-default-githost', 'index-root', 'generator-root', 'generator-src', 'generator-test', 'plugin-test', 'template-example', 'libs'])
 
   app.task('set-default-githost', done => {
     const githosts = app.base.data('githosts')
