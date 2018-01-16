@@ -36,6 +36,7 @@ export default app => {
     askPromise(['alias'])
     .then(({alias}) => {
       name = `generate-${alias}`
+      !app.option('silent') && app.log.success(`Package name is set to "${name}"`)
       app.base.data({alias, name})
 
       app.question('dest', {
