@@ -29,14 +29,14 @@ export default app => {
 
     let name, defaultHost, files, authorName
 
-    app.question('name', {
-      message: 'Project name ?',
-      default: 'generate-my-swap-generator'
+    app.question('alias', {
+      message: 'Generator alias ?',
+      default: 'my-generator'
     })
-    askPromise(['name'])
-    .then(answers => {
-      name = answers.name
-      app.base.data({name})
+    askPromise(['alias'])
+    .then(({alias}) => {
+      name = `generate-${alias}`
+      app.base.data({alias, name})
 
       app.question('dest', {
         message: 'Project directory ?',
@@ -57,7 +57,6 @@ export default app => {
         message: 'Author name ?'
       })
 
-      // const {dest, description, githosts, owner} = await askPromise(['dest', 'description', 'githosts', 'owner'])
       return askPromise(['dest', 'description', 'githosts', 'author.username', 'author.name'])
     })
     .then(answers => {
