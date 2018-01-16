@@ -143,7 +143,7 @@ export default app => {
         'package.json',
         'yarn.lock'
       ]
-      !app.option('silent') && app.log.success('Required packaged files are the following:', defaultFiles)
+      !app.option('silent') && app.log.success('Required packaged files are the following:', defaultFiles.join(','))
 
       files = defaultFiles
 
