@@ -31,7 +31,7 @@ export default app => {
 
     app.question('alias', {
       message: 'Generator alias ?',
-      default: 'my-generator'
+      default: 'generator-example'
     })
     askPromise(['alias'])
     .then(({alias}) => {
