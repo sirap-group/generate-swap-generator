@@ -1,7 +1,7 @@
 ---
 layout: false
 rename:
-  basename: 'src/lib/generate-subgenerator-example/generator.js'
+  basename: 'src/lib/subgenerators/generate-subgenerator-example/generator.js'
 ---
 import isValid from 'is-valid-app'
 import helperDate from 'helper-date'
