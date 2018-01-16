@@ -28,7 +28,7 @@ export default function (app) {
    * @name main
    * @api public
    */
-  app.task('main', ['set-default-githost', 'index-root', 'generator-root', 'generator-src', 'generator-test', 'plugin-test', 'template-example'])
+  app.task('main', ['set-default-githost', 'index-root', 'generator-root', 'generator-src', 'generator-test', 'plugin-test', 'template-example', 'libs'])
 
   app.task('set-default-githost', done => {
     const githosts = app.base.data('githosts')
@@ -126,7 +126,7 @@ export default function (app) {
    * @name lib
    * @api public
    */
-  app.task('libs', ['libs-utils-helpers', 'libs-utils-utils'])
+  app.task('libs', ['libs-utils-helpers', 'libs-utils-utils', 'libs-tasks-prompt', 'libs-subgenerator-example'])
   task(app, 'libs-utils-helpers', 'generate-swap-generator-main/libs-utils-helpers.js')
   task(app, 'libs-utils-utils', 'generate-swap-generator-main/libs-utils-utils.js')
   task(app, 'libs-tasks-prompt', 'generate-swap-generator-main/libs-tasks-prompt.js')
