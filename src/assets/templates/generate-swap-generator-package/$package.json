@@ -48,7 +48,7 @@ rename:
     "release:major": "yarn gulp -f ./scripts/gulp-tasks/release.js release:major",
     "release:prerelease": "yarn gulp -f ./scripts/gulp-tasks/release.js release:prerelease"
   },
-  "keywords": "<%= arrayify(ask('keywords')) %>",
+  "keywords": "<%= arrayify(keywords || ask('keywords')) %>",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.1.2",
