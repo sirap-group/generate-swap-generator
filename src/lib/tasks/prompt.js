@@ -157,7 +157,7 @@ export default app => {
       if (additionnalFiles && additionnalFiles.length) {
         additionnalFiles.split(',')
         .map(s => s.trim())
-        .forEach(adFile => files.push(adFile))
+        .forEach(file => file && files.push(file))
       }
 
       app.base.data({files})
@@ -205,12 +205,12 @@ export default app => {
       if (suggestedKeywords && suggestedKeywords.length) {
         suggestedKeywords
         .map(s => s.trim())
-        .forEach(keyword => keywords.push(keyword))
+        .forEach(keyword => keyword && keywords.push(keyword))
       }
       if (additionnalKeywords && additionnalKeywords.length) {
         additionnalKeywords.split(',')
         .map(s => s.trim())
-        .forEach(keyword => keywords.push(keyword))
+        .forEach(keyword => keyword && keywords.push(keyword))
       }
 
       app.base.data({keywords})
