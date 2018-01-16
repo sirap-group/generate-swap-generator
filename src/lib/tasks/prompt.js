@@ -203,7 +203,7 @@ export default app => {
     })
     .then(({suggestedKeywords, additionnalKeywords}) => {
       if (suggestedKeywords && suggestedKeywords.length) {
-        suggestedKeywords.split(',')
+        suggestedKeywords
         .map(s => s.trim())
         .forEach(keyword => keywords.push(keyword))
       }
