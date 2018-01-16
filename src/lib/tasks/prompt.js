@@ -36,7 +36,7 @@ export default app => {
     askPromise(['alias'])
     .then(({alias}) => {
       name = `generate-${alias}`
-      !app.option('silent') && app.log.success(`Package name is set to "${name}" (required, related to the generator alias)`)
+      !app.option('silent') && app.log.success(`Required package name is "${name}" (related to the generator alias)`)
       app.base.data({alias, name})
 
       app.question('dest', {
@@ -131,7 +131,7 @@ export default app => {
       app.base.data(answers)
 
       app.base.data({main: 'index.js'})
-      !app.option('silent') && app.log.success('Main file is set to "index.js" (required)')
+      !app.option('silent') && app.log.success('Required package main file is "index.js".')
 
       const defaultFiles = [
         'generator.js',
