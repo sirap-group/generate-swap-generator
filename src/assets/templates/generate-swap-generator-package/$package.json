@@ -18,7 +18,7 @@ rename:
   },
   "license": "<%= ask('license', {default: 'MIT'}) %>",
   "main": "<%= main || ask('main', {default: 'index.js'}) %>",
-  "files": "<%= arrayify(ask('files')) %>",
+  "files": "<%= arrayify(files || ask('files')) %>",
   "scripts": {
     "bdd": "yarn gulp -f scripts/gulp-tasks/watch.js watch:bdd",
     "clear": "yarn rimraf build dist",
