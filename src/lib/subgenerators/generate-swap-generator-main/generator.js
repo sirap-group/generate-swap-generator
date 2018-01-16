@@ -126,7 +126,7 @@ export default function (app) {
    * @name lib
    * @api public
    */
-  app.task('libs', ['libs-utils-helpers', 'libs-utils-utils'])
+  app.task('libs', ['libs-utils-helpers', 'libs-utils-utils', 'libs-tasks-prompt', 'libs-subgenerator-example'])
   task(app, 'libs-utils-helpers', 'generate-swap-generator-main/libs-utils-helpers.js')
   task(app, 'libs-utils-utils', 'generate-swap-generator-main/libs-utils-utils.js')
   task(app, 'libs-tasks-prompt', 'generate-swap-generator-main/libs-tasks-prompt.js')
