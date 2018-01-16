@@ -43,6 +43,7 @@ export default function (app) {
     app.generate([
       'prompt',
       'dest',
+      'subgenerator-example',
       'example'
     ], cb)
   })
