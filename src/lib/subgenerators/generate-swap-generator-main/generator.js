@@ -28,7 +28,7 @@ export default function (app) {
    * @name main
    * @api public
    */
-  app.task('main', ['set-default-githost', 'index-root', 'generator-root', 'generator-src', 'generator-test', 'plugin-test', 'template-example', 'libs'])
+  app.task('main', ['set-default-githost', 'index-root', 'generator-root', 'generator-src', 'generator-test', 'plugin-test', 'templates', 'libs'])
 
   app.task('set-default-githost', done => {
     const githosts = app.base.data('githosts')
@@ -116,7 +116,8 @@ export default function (app) {
     .on('finish', done)
     .on('error', done)
   })
-
+  task(app, 'template-example-subgenerator', 'generate-swap-generator-main/example-subgenerator.txt')
+  app.task('templates', ['template-example', 'template-example-subgenerator'])
   /**
    * Copy the lib files
    *
