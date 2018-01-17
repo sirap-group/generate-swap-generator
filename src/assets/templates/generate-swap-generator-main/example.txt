@@ -3,6 +3,6 @@ layout: false
 rename:
   basename: 'src/assets/templates/example.txt'
 ---
-This is a example template for <%= ask('name') %> generator !
+This is a example template for <%= alias %> generator !
 
-By <%= ask('owner') %>, license <%= ask('license') %>
+By <%= owner %>, license <%= license %>

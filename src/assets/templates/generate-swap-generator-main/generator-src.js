@@ -15,7 +15,7 @@ import generateSubgeneratorExample from './subgenerators/generate-subgenerator-e
 import promptTask from './tasks/prompt'
 
 export default function (app) {
-  if (!isValid(app, '<%= ask('name') %>')) return
+  if (!isValid(app, '<%= packageName %>')) return
 
   app.on('error', err => app.log.error(err))
 

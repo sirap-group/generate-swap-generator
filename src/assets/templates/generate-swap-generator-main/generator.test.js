@@ -22,7 +22,7 @@ const isTravis = isCI || process.env.TRAVIS
 // const fixtures = path.resolve.bind(path, __dirname, 'fixtures')
 const actual = path.resolve.bind(path, __dirname, 'actual')
 
-describe('<%= ask('name') %>', function () {
+describe('<%= packageName %>', function () {
   this.slow(250)
 
   if (isTravis) {
@@ -47,7 +47,7 @@ describe('<%= ask('name') %>', function () {
     it('should extend tasks onto the instance', function () {
       app.use(generator)
       expect(app.tasks).has.property('default')
-      expect(app.tasks).has.property('project')
+      expect(app.tasks).has.property('main')
     })
 
     it('should run the `default` task with .build', function (cb) {
@@ -62,14 +62,14 @@ describe('<%= ask('name') %>', function () {
   })
 
   describe('<%= alias %> (CLI)', function () {
-    it('should run the default task using the `<%= ask('name') %>` name (global install)', function (cb) {
+    it('should run the default task using the `<%= packageName %>` name (global install)', function (cb) {
       app.use(generator)
-      app.generate('<%= ask('name') %>', exists('example.txt', cb))
+      app.generate('<%= packageName %>', exists('example.txt', cb))
     })
 
     it('should run the default task using the `<%= alias %>` generator alias (local generator.js)', function (cb) {
       app.use(generator)
-      app.generate('project', exists('example.txt', cb))
+      app.generate('<%= alias %>', exists('example.txt', cb))
     })
   })
 
@@ -79,12 +79,12 @@ describe('<%= ask('name') %>', function () {
       app.generate('<%= alias %>', exists('example.txt', cb))
     })
 
-    it('should run the `<%= alias %>` task', function (cb) {
+    it('should run the `<%= alias %>:main` task', function (cb) {
       app.register('<%= alias %>', generator)
-      app.generate('<%= alias %>:project', exists('example.txt', cb))
+      app.generate('<%= alias %>:main', exists('example.txt', cb))
     })
 
-    it('should run the `default` task when defined explicitly', function (cb) {
+    it('should run the `default` task when called explicitly', function (cb) {
       app.register('<%= alias %>', generator)
       app.generate('<%= alias %>:default', exists('example.txt', cb))
     })
@@ -105,18 +105,18 @@ describe('<%= ask('name') %>', function () {
       app.generate('foo.<%= alias %>', exists('example.txt', cb))
     })
 
-    it('should run the `generator:default` task when defined explicitly', function (cb) {
+    it('should run the `<%= alias %>:default` task when defined explicitly', function (cb) {
       app.register('foo', function (foo) {
         foo.register('<%= alias %>', generator)
       })
       app.generate('foo.<%= alias %>:default', exists('example.txt', cb))
     })
 
-    it('should run the `generator:project` task when defined explicitly', function (cb) {
+    it('should run the `<%= alias %>:main` task when defined explicitly', function (cb) {
       app.register('foo', function (foo) {
         foo.register('<%= alias %>', generator)
       })
-      app.generate('foo.<%= alias %>:project', exists('example.txt', cb))
+      app.generate('foo.<%= alias %>:main', exists('example.txt', cb))
     })
 
     it('should work with nested sub-generators', function (cb) {
@@ -133,7 +133,7 @@ describe('<%= ask('name') %>', function () {
       const sub0 = app.register('sub0', generator)
       // eslint-disable-next-line no-unused-vars
       const sub1 = sub0.register('sub1', generator)
-      app.generate('sub0.sub1:package', exists('example.txt', cb))
+      app.generate('sub0.sub1:main', exists('example.txt', cb))
     })
   })
 

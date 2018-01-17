@@ -12,7 +12,7 @@ import { escapeQuotes } from '../../utils/helpers'
 import generateDefaults from 'generate-defaults'
 
 export default function (app) {
-  if (!isValid(app, 'generate-swap-generator-package')) return
+  if (!isValid(app, 'generate-subgenerator-example')) return
 
   app.on('error', err => app.log.error(err))
 

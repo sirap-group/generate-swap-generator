@@ -13,7 +13,7 @@ let app
 
 const expect = chai.expect
 
-describe('<%= ask('name') %>', function () {
+describe('<%= packageName %>', function () {
   beforeEach(function () {
     app = generate()
   })
@@ -28,7 +28,7 @@ describe('<%= ask('name') %>', function () {
     it('should only register the plugin once', function (cb) {
       let count = 0
       app.on('plugin', function (name) {
-        if (name === '<%= ask('name') %>') {
+        if (name === '<%= packageName %>') {
           count++
         }
       })

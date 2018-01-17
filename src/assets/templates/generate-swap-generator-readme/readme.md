@@ -4,24 +4,24 @@ rename:
   basename: 'README.md'
 ---
 <h1 align="center">
-  <a href="https://github.com/sirap-group"><img src="src/assets/img/brand.png"/></a>
+  <a href="https://<%= defaultHost || ask('defaultHost') %>/<%= ask('namespace') %>"><img src="src/assets/img/brand.png"/></a>
   <br>
-  −− <%= ask('name') %> −−
+  −− <%= packageName || ask('packageName') %> −−
   <br>
   <br>
 </h1>
 
 <p align="center">
-  <a href="https://travis-ci.org/<%= ask('namespace') %>/<%= ask('name') %>" target="_blank">
-    <img alt="Build Status" src="https://travis-ci.org/<%= ask('namespace') %>/<%= ask('name') %>.svg?branch=master"/>
+  <a href="https://travis-ci.org/<%= ask('namespace') %>/<%= packageName || ask('packageName') %>" target="_blank">
+    <img alt="Build Status" src="https://travis-ci.org/<%= ask('namespace') %>/<%= packageName || ask('packageName') %>.svg?branch=master"/>
   </a>
 
-  <a href="https://www.npmjs.com/package/<%= ask('name') %>">
-    <img src="https://img.shields.io/npm/dm/<%= ask('name') %>.svg" alt="npm downloads">
+  <a href="https://www.npmjs.com/package/<%= packageName || ask('packageName') %>">
+    <img src="https://img.shields.io/npm/dm/<%= packageName || ask('packageName') %>.svg" alt="npm downloads">
   </a>
 
-  <a href="https://npmjs.org/package/<%= ask('name') %>" target="_blank">
-    <img alt="NPM version" src="https://badge.fury.io/js/<%= ask('name') %>.svg"/>
+  <a href="https://npmjs.org/package/<%= packageName || ask('packageName') %>" target="_blank">
+    <img alt="NPM version" src="https://badge.fury.io/js/<%= packageName || ask('packageName') %>.svg"/>
   </a>
 
   <a href="https://standardjs.com" target="_blank">
@@ -33,8 +33,8 @@ rename:
   −− <%= ask('description') %> −−
   <br>
   <br>
-  <a href="https://www.npmjs.com/package/<%= ask('name') %>" target="_blank">
-    <img alt="NPM Stats" src="https://nodei.co/npm/<%= ask('name') %>.png?downloads=true&downloadRank=true&stars=true"/>
+  <a href="https://www.npmjs.com/package/<%= packageName || ask('packageName') %>" target="_blank">
+    <img alt="NPM Stats" src="https://nodei.co/npm/<%= packageName || ask('packageName') %>.png?downloads=true&downloadRank=true&stars=true"/>
   </a>
 </h4>
 
@@ -43,13 +43,13 @@ rename:
 ### Global install to use the generator as a standarlone CLI (recommanded)
 
 ```sh
-$ yarn gobal add <%= ask('name') %>
+$ yarn gobal add <%= packageName || ask('packageName') %>
 ```
 
 or
 
 ```sh
-$ npm install --global <%= ask('name') %>
+$ npm install --global <%= packageName || ask('packageName') %>
 ```
 
 ### Local install to use as a `generate` plugin or sub-generator
@@ -57,13 +57,13 @@ $ npm install --global <%= ask('name') %>
 > You should first visit the generator framework, [generate](https://github.com/generate/generate) to understand how generators, subgenerators and plugins work. See also [related projects](#related-projects)
 
 ```sh
-$ yarn add <%= ask('name') %>
+$ yarn add <%= packageName || ask('packageName') %>
 ```
 
 or
 
 ```sh
-$ npm install --save <%= ask('name') %>
+$ npm install --save <%= packageName || ask('packageName') %>
 ```
 
 ## Usage
@@ -71,7 +71,7 @@ $ npm install --save <%= ask('name') %>
 ### As a standalone generator (recommanded)
 
 ```sh
-$ <%= ask('name') %>
+$ <%= packageName || ask('packageName') %>
 ```
 
 Should **@TODO: describe generator default action**
@@ -101,50 +101,50 @@ Should **@TODO: describe generator default action**
 > You should first visit the generator framework, [generate](https://github.com/generate/generate) to understand how generators, subgenerators and plugins work.
 
 ```js
-import <%= camelcase(ask('name')) %> from '<%= ask('name') %>'
+import <%= camelcase(packageName || ask('packageName')) %> from '<%= packageName || ask('packageName') %>'
 import isValid from 'is-valid-app'
 
 export default function (app) {
   if (!isValid(app, 'generate-my-generator')) return
 
-  app.use(<%= camelcase(ask('name')) %>)
+  app.use(<%= camelcase(packageName || ask('packageName')) %>)
 
   // ... your generator's stuff
 }
 ```
 
-Then you can use directly any '<%= ask('name') %>' tasks as a `generate-my-generator` task.
+Then you can use directly any '<%= packageName || ask('packageName') %>' tasks as a `generate-my-generator` task.
 
 ```
 $ gen my-generator:example-task
 ```
 
-Should run `<%= ask('name') %>:example-task` on your own generator instance.
+Should run `<%= packageName || ask('packageName') %>:example-task` on your own generator instance.
 
 ### As a generate sub-generator (if you know what you are doing)
 
 > You should first visit the generator framework, [generate](https://github.com/generate/generate) to understand how generators, subgenerators and plugins work.
 
 ```js
-import <%= camelcase(ask('name')) %> from '<%= ask('name') %>'
+import <%= camelcase(packageName || ask('packageName')) %> from '<%= packageName || ask('packageName') %>'
 import isValid from 'is-valid-app'
 
 export default function (app) {
   if (!isValid(app, 'generate-my-generator')) return
 
-  app.register('<%= ask('alias') %>', <%= camelcase(ask('name')) %>)
+  app.register('<%= ask('alias') %>', <%= camelcase(packageName || ask('packageName')) %>)
 
   // ... your generator's stuff
 }
 ```
 
-Then you can acces easily any `<%= ask('name') %>` tasks as a `generate-my-generator` sub-generator task.
+Then you can acces easily any `<%= packageName || ask('packageName') %>` tasks as a `generate-my-generator` sub-generator task.
 
 ```
 $ gen my-generator.<%= ask('alias') %>:example-task
 ```
 
-Should run `<%= ask('name') %>:example-task` on your own generator instance.
+Should run `<%= packageName || ask('packageName') %>:example-task` on your own generator instance.
 
 ## API
 
@@ -196,8 +196,8 @@ All the rest of the development dependencies are local.
 Clone the repo and install dependencies:
 
 ```sh
-$ git clone git@github.com:<%= ask('namespace') %>/<%= ask('name') %>.git
-$ cd <%= ask('name') %>
+$ git clone git@github.com:<%= ask('namespace') %>/<%= packageName || ask('packageName') %>.git
+$ cd <%= packageName || ask('packageName') %>
 $ yarn install
 ```
 #### Running test
