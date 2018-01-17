@@ -35,7 +35,7 @@
 
 ## Demo example
 
-![Usage Demo](src/assets/img/usage-example.gif)
+![Usage example](src/assets/img/usage-screencast.gif)
 
 Check out the following repository to see what a project generated with `generate-swap-generator` looks like out the box:
 
@@ -109,10 +109,6 @@ Should scaffold the project in the destination path you choose when asked.
 ├── README.md
 └── .travis.yml
 ```
-
-#### Usage screenshot
-
-![Usage example](src/assets/img/placehold-350x150.png)
 
 ### As a generate plugin (if you know what you are doing)
 
