@@ -14,6 +14,9 @@ function task (app, name, pattern, dependencies) {
 function file (app, pattern) {
   const opts = extend({}, app.base.options, app.options)
   const srcBase = opts.srcBase || path.join(__dirname, '../../assets/templates')
+
+  app.base.set('cache.data.name', app.base.cache.data.packageName)
+
   return app.src(pattern, {cwd: srcBase})
     .pipe(app.renderFile('*', app.base.cache.data))
     .pipe(app.conflicts(app.cwd))

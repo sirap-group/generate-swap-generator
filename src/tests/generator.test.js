@@ -145,6 +145,7 @@ describe('generate-swap-project', function () {
 
     app.data(pkg)
     app.data('project', pkg)
+    app.data('packageName', pkg.name)
     app.data('username', 'foo')
     app.data('namespace', 'myorg')
     app.data('owner', 'foo')

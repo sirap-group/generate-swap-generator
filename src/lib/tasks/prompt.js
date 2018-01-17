@@ -36,9 +36,15 @@ export default app => {
     askPromise(['alias'])
     .then(({alias}) => {
       name = `generate-${alias}`
-      !app.option('silent') && app.log.success(`Required package name is "${name}" (related to the generator alias)`)
-      app.base.data({alias, name})
 
+      !app.option('silent') && app.log.success(`Required package name is "${name}" (related to the generator alias)`)
+
+      app.base.data({alias, name, packageName: name})
+
+      app.question('name', {
+        message: 'Package name (You should keep the suggestion or the generator may be broken) ?',
+        default: name
+      })
       app.question('dest', {
         message: 'Project directory ?',
         default: name
@@ -58,7 +64,7 @@ export default app => {
         message: 'Author name ?'
       })
 
-      return askPromise(['dest', 'description', 'githosts', 'author.username', 'author.name'])
+      return askPromise(['name', 'dest', 'description', 'githosts', 'author.username', 'author.name'])
     })
     .then(answers => {
       const {githosts} = answers
