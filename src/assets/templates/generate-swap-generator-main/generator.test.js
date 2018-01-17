@@ -22,7 +22,7 @@ const isTravis = isCI || process.env.TRAVIS
 // const fixtures = path.resolve.bind(path, __dirname, 'fixtures')
 const actual = path.resolve.bind(path, __dirname, 'actual')
 
-describe('<%= ask('name') %>', function () {
+describe('<%= packageName %>', function () {
   this.slow(250)
 
   if (isTravis) {
@@ -47,7 +47,7 @@ describe('<%= ask('name') %>', function () {
     it('should extend tasks onto the instance', function () {
       app.use(generator)
       expect(app.tasks).has.property('default')
-      expect(app.tasks).has.property('project')
+      expect(app.tasks).has.property('main')
     })
 
     it('should run the `default` task with .build', function (cb) {
@@ -62,9 +62,9 @@ describe('<%= ask('name') %>', function () {
   })
 
   describe('<%= alias %> (CLI)', function () {
-    it('should run the default task using the `<%= ask('name') %>` name (global install)', function (cb) {
+    it('should run the default task using the `<%= packageName %>` name (global install)', function (cb) {
       app.use(generator)
-      app.generate('<%= ask('name') %>', exists('example.txt', cb))
+      app.generate('<%= packageName %>', exists('example.txt', cb))
     })
 
     it('should run the default task using the `<%= alias %>` generator alias (local generator.js)', function (cb) {
