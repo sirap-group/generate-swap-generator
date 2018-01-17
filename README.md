@@ -37,7 +37,7 @@
 
 Check out the following repository to see what a project generated with `generate-swap-generator` looks like out the box:
 
-> [https://github.com/sirap-group/swap-generator-example](https://github.com/sirap-group/swap-generator-example)
+> [https://github.com/sirap-group/generate-swap-generator-example](https://github.com/sirap-group/generate-swap-generator-example)
 
 ## Installation
 
