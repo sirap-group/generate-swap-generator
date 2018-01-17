@@ -64,7 +64,7 @@ describe('generate-swap-project', function () {
 
     it('should run the default task using the `swap-project` generator alias (local generator.js)', function (cb) {
       app.use(generator)
-      app.generate('project', exists('package.json', cb))
+      app.generate('swap-project', exists('package.json', cb))
     })
   })
 
