@@ -1,7 +1,7 @@
 {
   "name": "generate-swap-generator",
   "description": "Generate your own ESNext/StandardJS/UnitTest Ready Generators − A generator for SWAP generators −",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "homepage": "https://github.com/sirap-group/generate-swap-generator",
   "author": "Rémi Becheras (https://github.com/rbecheras)",
   "repository": "git@github.com:sirap-group/generate-swap-generator.git",
